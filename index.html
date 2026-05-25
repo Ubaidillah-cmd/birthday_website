@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday ✨</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ───── CUSTOM CURSOR ───── -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ───── LOADING SCREEN ───── -->
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loading-inner">
+      <div class="loading-ring"></div>
+      <div class="loading-ring delay-1"></div>
+      <div class="loading-ring delay-2"></div>
+      <p class="loading-text">Memuat keajaiban...</p>
+    </div>
+  </div>
+
+  <!-- ───── OPENING SCREEN ───── -->
+  <section id="openingScreen" class="opening-screen hidden">
+    <canvas id="starCanvas"></canvas>
+    <div class="opening-content">
+      <div class="flower-top">✿ ✾ ✿</div>
+      <p class="opening-sub">Sebuah pesan istimewa untukmu</p>
+      <h1 class="opening-title">Happy Birthday</h1>
+      <h2 class="opening-name">🎉 Namamu 🎉</h2>
+      <p class="opening-date">25 Mei 2026</p>
+      <button class="btn-open" id="btnOpen">
+        <span>Buka Ucapan</span>
+        <i class="fas fa-envelope-open-text"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ───── MAIN CONTENT ───── -->
+  <main id="mainContent" class="hidden">
+
+    <!-- NAV -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-logo">🎂 Birthday</div>
+      <button class="hamburger" id="hamburger" aria-label="menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#timeline">Memories</a></li>
+        <li><a href="#message">Pesan</a></li>
+        <li><a href="#countdown">Countdown</a></li>
+      </ul>
+    </nav>
+
+    <!-- PARTICLE BG -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- ── HERO ── -->
+    <section id="hero" class="hero-section">
+      <div class="hero-bg-anim"></div>
+      <div class="hero-inner">
+        <div class="hero-photo-wrap" data-aos="zoom-in" data-aos-duration="1000">
+          <div class="photo-ring ring-1"></div>
+          <div class="photo-ring ring-2"></div>
+          <div class="photo-ring ring-3"></div>
+          <div class="hero-photo">
+            <img src="https://i.pravatar.cc/400?img=47" alt="Birthday Person" />
+          </div>
+        </div>
+        <div class="hero-text" data-aos="fade-up" data-aos-delay="300">
+          <p class="hero-label">✨ Hari yang paling spesial ✨</p>
+          <h1 class="hero-title">Happy Birthday,<br><span class="gold-name">Namamu!</span></h1>
+          <p class="hero-typing" id="typingText"></p>
+          <div class="hero-badges">
+            <span class="badge"><i class="fas fa-star"></i> Luar Biasa</span>
+            <span class="badge"><i class="fas fa-heart"></i> Dicintai</span>
+            <span class="badge"><i class="fas fa-crown"></i> Istimewa</span>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-dot"></div>
+      </div>
+    </section>
+
+    <!-- ── GALLERY ── -->
+    <section id="gallery" class="gallery-section">
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-sub">Momen berharga</p>
+        <h2 class="section-title">Galeri Kenangan</h2>
+        <div class="title-line"></div>
+      </div>
+      <div class="gallery-grid" data-aos="fade-up" data-aos-delay="200">
+        <div class="gallery-item" data-src="https://picsum.photos/seed/b1/600/600">
+          <img src="https://picsum.photos/seed/b1/600/600" alt="Memory 1" loading="lazy"/>
+          <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item tall" data-src="https://picsum.photos/seed/b2/600/900">
+          <img src="https://picsum.photos/seed/b2/600/900" alt="Memory 2" loading="lazy"/>
+          <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item" data-src="https://picsum.photos/seed/b3/600/600">
+          <img src="https://picsum.photos/seed/b3/600/600" alt="Memory 3" loading="lazy"/>
+          <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item wide" data-src="https://picsum.photos/seed/b4/900/600">
+          <img src="https://picsum.photos/seed/b4/900/600" alt="Memory 4" loading="lazy"/>
+          <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item" data-src="https://picsum.photos/seed/b5/600/600">
+          <img src="https://picsum.photos/seed/b5/600/600" alt="Memory 5" loading="lazy"/>
+          <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+        <div class="gallery-item" data-src="https://picsum.photos/seed/b6/600/600">
+          <img src="https://picsum.photos/seed/b6/600/600" alt="Memory 6" loading="lazy"/>
+          <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal-overlay" id="galleryModal">
+        <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+        <img src="" alt="Preview" id="modalImg" />
+      </div>
+    </section>
+
+    <!-- ── TIMELINE ── -->
+    <section id="timeline" class="timeline-section">
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-sub">Perjalanan kita</p>
+        <h2 class="section-title">Timeline Kenangan</h2>
+        <div class="title-line"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item left" data-aos="fade-right" data-aos-delay="100">
+          <div class="timeline-icon"><i class="fas fa-baby"></i></div>
+          <div class="timeline-card glass-card">
+            <span class="tl-year">2000</span>
+            <h3>Hari yang Ajaib</h3>
+            <p>Kamu lahir ke dunia dan membuat segalanya menjadi lebih berwarna. Sebuah bab baru dimulai.</p>
+          </div>
+        </div>
+        <div class="timeline-item right" data-aos="fade-left" data-aos-delay="200">
+          <div class="timeline-icon"><i class="fas fa-school"></i></div>
+          <div class="timeline-card glass-card">
+            <span class="tl-year">2010</span>
+            <h3>Masa Sekolah Indah</h3>
+            <p>Penuh tawa, nakal, dan cerita lucu yang tak terlupakan. Masa-masa paling menyenangkan.</p>
+          </div>
+        </div>
+        <div class="timeline-item left" data-aos="fade-right" data-aos-delay="300">
+          <div class="timeline-icon"><i class="fas fa-handshake"></i></div>
+          <div class="timeline-card glass-card">
+            <span class="tl-year">2018</span>
+            <h3>Kita Bertemu</h3>
+            <p>Hari itu alam semesta mendekatkan kita. Dan hidupku tak pernah sama lagi sejak saat itu.</p>
+          </div>
+        </div>
+        <div class="timeline-item right" data-aos="fade-left" data-aos-delay="400">
+          <div class="timeline-icon"><i class="fas fa-mountain"></i></div>
+          <div class="timeline-card glass-card">
+            <span class="tl-year">2022</span>
+            <h3>Bersama Menaklukkan</h3>
+            <p>Kita melalui banyak hal bersama — suka duka, tawa tangis, dan semua yang menguatkan kita.</p>
+          </div>
+        </div>
+        <div class="timeline-item left" data-aos="fade-right" data-aos-delay="500">
+          <div class="timeline-icon"><i class="fas fa-star"></i></div>
+          <div class="timeline-card glass-card">
+            <span class="tl-year">2026</span>
+            <h3>Hari Ini & Seterusnya</h3>
+            <p>Selamat ulang tahun! Semoga tahun ini membawa keajaiban yang lebih indah dari sebelumnya.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SPECIAL MESSAGE ── -->
+    <section id="message" class="message-section">
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-sub">Dari hati yang tulus</p>
+        <h2 class="section-title">Surat Spesial</h2>
+        <div class="title-line"></div>
+      </div>
+      <div class="envelope-wrap" data-aos="zoom-in" data-aos-delay="200">
+        <div class="envelope" id="envelope">
+          <div class="envelope-flap"></div>
+          <div class="envelope-body">
+            <div class="envelope-letter" id="letterContent">
+              <div class="letter-inner">
+                <p class="letter-greeting">Untuk kamu yang luar biasa,</p>
+                <p>Di hari yang istimewa ini, aku ingin kamu tahu betapa berartinya kamu bagi semua orang di sekitarmu. Kamu adalah cahaya di tengah kegelapan, senyum di tengah kesedihan.</p>
+                <p>Setiap momen bersamamu adalah hadiah yang tak ternilai. Kamu membawa kebahagiaan yang tulus, dan dunia ini jauh lebih indah karena kehadiranmu.</p>
+                <p>Semoga di usia baru ini, semua impianmu terwujud, semua doa-doamu dikabulkan, dan kebahagiaan selalu menyelimutimu.</p>
+                <p class="letter-closing">Dengan segenap cinta,<br><em>Seseorang yang peduli padamu 💕</em></p>
+              </div>
+            </div>
+          </div>
+          <button class="envelope-btn" id="openLetterBtn">
+            <i class="fas fa-envelope-open"></i> Buka Surat
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── COUNTDOWN ── -->
+    <section id="countdown" class="countdown-section">
+      <div class="countdown-bg"></div>
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-sub">Menuju momen selanjutnya</p>
+        <h2 class="section-title">Countdown Pesta 🎊</h2>
+        <div class="title-line"></div>
+      </div>
+      <div class="countdown-grid" data-aos="fade-up" data-aos-delay="200">
+        <div class="countdown-card glass-card">
+          <div class="count-num" id="cDays">00</div>
+          <div class="count-label">Hari</div>
+        </div>
+        <div class="countdown-card glass-card">
+          <div class="count-num" id="cHours">00</div>
+          <div class="count-label">Jam</div>
+        </div>
+        <div class="countdown-card glass-card">
+          <div class="count-num" id="cMins">00</div>
+          <div class="count-label">Menit</div>
+        </div>
+        <div class="countdown-card glass-card">
+          <div class="count-num" id="cSecs">00</div>
+          <div class="count-label">Detik</div>
+        </div>
+      </div>
+      <p class="countdown-note" data-aos="fade-up" data-aos-delay="400">Menuju Ulang Tahun Berikutnya 🎂</p>
+    </section>
+
+    <!-- ── CLOSING ── -->
+    <section id="closing" class="closing-section">
+      <div class="closing-inner" data-aos="fade-up">
+        <div class="closing-icon">💝</div>
+        <h2 class="closing-title">Terima kasih sudah hadir<br>di hidupku</h2>
+        <p class="closing-sub">Kamu adalah salah satu alasan terbesar aku tersenyum setiap harinya.</p>
+        <button class="btn-hug" id="btnHug">
+          <i class="fas fa-heart"></i>
+          <span>Kirim Pelukan Virtual</span>
+        </button>
+        <div class="hearts-container" id="heartsContainer"></div>
+      </div>
+      <footer class="footer">
+        <p>Made with <i class="fas fa-heart" style="color:#ff6b9d"></i> for the most special person</p>
+        <p>© 2026 Birthday Wishes</p>
+      </footer>
+    </section>
+
+  </main>
+
+  <!-- ───── MUSIC PLAYER ───── -->
+  <div class="music-player" id="musicPlayer">
+    <button class="music-btn" id="musicToggle" title="Play / Pause Music">
+      <i class="fas fa-music" id="musicIcon"></i>
+    </button>
+    <div class="music-info">
+      <span class="music-title">🎵 Happy Birthday Song</span>
+      <div class="music-bar">
+        <div class="music-bar-fill" id="musicBarFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFETTI CANVAS -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
